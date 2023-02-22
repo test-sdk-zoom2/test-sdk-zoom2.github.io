@@ -3,11 +3,13 @@
 <div>iframe content</div>
 <div id="test-result"></div>
 <script>
-try {
-  window.localStorage.getItem('test-key');
-} catch (error) {
-  document.getElementById('test-result').innerText = 'Error detected: ' + error.message;
-  throw error;
-}
+  const element = document.getElementById('test-result');
+  try {
+    window.localStorage.getItem('test-key');
+    element.innerText = 'Successful - no errors detected';
+  } catch (error) {
+    element.innerText = 'Error detected: ' + error.message;
+    throw error;
+  }
 </script>
 </body>
